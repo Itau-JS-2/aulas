@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemplos API window com Timers</title>
+  </head>
+  <body>
+    <h1>API Global window e Timers</h1>
+
+    <script>
+      // Exibindo tamanho da viewport
+      console.log('Largura da janela:', window.innerWidth);
+      console.log('Altura da janela:', window.innerHeight);
+
+      // Exemplo de alert, confirm e prompt
+      alert('Bem-vindo à aula!');
+
+      if (confirm('Quer continuar?')) {
+        const nome = prompt('Qual seu nome?');
+        alert(`Olá, ${nome}!`);
+      } else {
+        alert('Tudo bem, até a próxima!');
+      }
+
+      // Document é parte do window
+      console.log(
+        'window.document === document?',
+        window.document === document
+      );
+
+      // Exemplo de setInterval e setTimeout
+      const idInterval = setInterval(() => {
+        console.log('Executando a cada 2 segundos');
+      }, 2000);
+
+      setTimeout(() => {
+        clearInterval(idInterval);
+        console.log('Intervalo cancelado após 10 segundos');
+      }, 10000);
+    </script>
+  </body>
+</html>

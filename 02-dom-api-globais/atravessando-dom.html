@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemplos DOM - Seleção e Navegação</title>
+  </head>
+  <body>
+    <div id="main" class="container">
+      <h1>Olá</h1>
+      <p class="texto">Parágrafo 1</p>
+      <p class="texto">Parágrafo 2</p>
+      <!-- Comentário de teste -->
+      <a href="https://exemplo.com">Link</a>
+      <div>Outro elemento</div>
+    </div>
+
+    <script>
+      // Seleção de elementos
+      const main = document.getElementById('main');
+      console.log('main:', main);
+
+      const textos = document.getElementsByClassName('texto');
+      console.log('textos (getElementsByClassName):', textos);
+
+      const primeiroTexto = document.querySelector('.texto');
+      console.log('primeiroTexto (querySelector):', primeiroTexto);
+
+      const todosTextos = document.querySelectorAll('.texto');
+      console.log('todosTextos (querySelectorAll):', todosTextos);
+
+      // Navegação básica no DOM
+      const body = document.body;
+      console.log('body.firstChild:', body.firstChild); // texto (espaço/linha)
+      console.log('body.firstElementChild:', body.firstElementChild); // <div id="main">
+
+      const p = document.querySelector('p');
+      console.log('p.nextSibling:', p.nextSibling); // comentário ou texto
+      console.log('p.nextElementSibling:', p.nextElementSibling); // próximo <p> ou outro elemento
+
+      console.log('p.parentNode:', p.parentNode); // <div id="main">
+      console.log('p.childNodes:', p.childNodes); // text nodes dentro do <p>
+    </script>
+  </body>
+</html>

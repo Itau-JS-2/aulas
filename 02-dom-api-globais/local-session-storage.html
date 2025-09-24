@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>localStorage e sessionStorage - Exemplo Rápido</title>
+  </head>
+  <body>
+    <h1>Exemplo rápido de armazenamento</h1>
+
+    <script>
+      // Salvar dados
+      localStorage.setItem('nome', 'Maria');
+      sessionStorage.setItem('token', '123abc');
+
+      // Ler dados
+      console.log('localStorage nome:', localStorage.getItem('nome')); // Maria
+      console.log('sessionStorage token:', sessionStorage.getItem('token')); // 123abc
+
+      // Remover dados
+      localStorage.removeItem('nome');
+
+      // Limpar sessionStorage
+      sessionStorage.clear();
+
+      console.log(
+        'localStorage nome após remoção:',
+        localStorage.getItem('nome')
+      ); // null
+      console.log(
+        'sessionStorage token após limpeza:',
+        sessionStorage.getItem('token')
+      ); // null
+    </script>
+  </body>
+</html>

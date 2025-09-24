@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resumo – Eventos no DOM</title>
+  </head>
+  <body>
+    <h1>🎯 Eventos no DOM</h1>
+
+    <button id="btn-alert">Clique em mim</button>
+
+    <form id="form-exemplo" style="margin-top: 20px">
+      <input type="text" placeholder="Digite algo" />
+      <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+      // Exemplo 1 – Escutar evento de clique
+      const botao = document.getElementById('btn-alert');
+
+      // addEventListener é a forma moderna e flexível de tratar eventos.
+      // Permite adicionar vários ouvintes ao mesmo elemento.
+      botao.addEventListener('click', () => {
+        alert('Você clicou no botão!');
+      });
+
+      // Exemplo 2 – Usando o objeto 'event'
+      const form = document.getElementById('form-exemplo');
+
+      form.addEventListener('submit', function (event) {
+        // preventDefault evita a ação padrão (não deixa a página recarregar)
+        event.preventDefault();
+
+        // event.target é o elemento que disparou o evento
+        console.log('Elemento que disparou:', event.target);
+
+        // Podemos acessar o valor digitado no input
+        const valor = form.querySelector('input').value;
+        alert('Você digitou: ' + valor);
+      });
+
+      // Exemplo 3 – Removendo um ouvinte
+      // Precisamos de uma função nomeada para poder removê-la depois
+      function mensagemTemporaria() {
+        console.log(
+          'Clique registrado – este listener será removido após 1 clique.'
+        );
+        botao.removeEventListener('click', mensagemTemporaria);
+      }
+
+      // Adiciona o ouvinte temporário que se remove no primeiro clique
+      botao.addEventListener('click', mensagemTemporaria);
+    </script>
+  </body>
+</html>

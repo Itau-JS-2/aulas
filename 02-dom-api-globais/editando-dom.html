@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exemplos DOM - Editando o DOM</title>
+    <style>
+      .ativo {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+      <h1>Olá</h1>
+      <p class="texto">Parágrafo original</p>
+      <a href="https://exemplo.com">Link original</a>
+    </div>
+
+    <script>
+      // 1. Modificando texto e conteúdo
+      const p = document.querySelector('p.texto');
+      p.textContent = 'Texto alterado via textContent';
+
+      const main = document.getElementById('main');
+      main.innerHTML += '<h2>Subtítulo inserido via innerHTML</h2>';
+
+      // 2. Alterando atributos
+      const link = document.querySelector('a');
+      link.setAttribute('href', 'https://novo-site.com');
+      link.classList.add('ativo');
+      link.style.color = 'red';
+
+      // 3. Criando e inserindo elementos
+      const novoP = document.createElement('p');
+      novoP.textContent = 'Parágrafo criado via JS';
+      document.body.appendChild(novoP);
+
+      // 4. Removendo elementos
+      // Remover o primeiro parágrafo original (agora alterado)
+      // p.remove(); // descomente para testar a remoção
+    </script>
+  </body>
+</html>

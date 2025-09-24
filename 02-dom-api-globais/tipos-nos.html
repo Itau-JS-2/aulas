@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tipos de Nós no DOM</title>
+  </head>
+  <body>
+    <div id="main" class="container">
+      <h1>Bem-vindo</h1>
+      <p class="mensagem">Olá</p>
+      <!-- Comentário de teste -->
+      <a href="https://exemplo.com">Link</a>
+    </div>
+
+    <script>
+      // Document (raiz da árvore DOM)
+      console.log('document:', document);
+
+      // Element (exemplo <p>)
+      const p = document.querySelector('.mensagem');
+      console.log('Elemento <p>:', p);
+      console.log('nodeType do <p>:', p.nodeType); // 1
+
+      // Text (nó de texto dentro do <h1>)
+      const h1 = document.querySelector('h1');
+      console.log('Nó texto do <h1>:', h1.firstChild);
+      console.log('nodeType do texto:', h1.firstChild.nodeType); // 3
+      console.log('Conteúdo do texto:', h1.firstChild.textContent);
+
+      // Comment (nó comentário)
+      document.body.childNodes.forEach((node) => {
+        if (node.nodeType === 8) {
+          console.log('Comentário:', node.nodeValue);
+        }
+      });
+
+      // Attribute (acesso tradicional)
+      const link = document.querySelector('a');
+      console.log('href do link (getAttribute):', link.getAttribute('href'));
+    </script>
+  </body>
+</html>
