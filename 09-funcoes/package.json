@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "nodemon documentacao.js"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
